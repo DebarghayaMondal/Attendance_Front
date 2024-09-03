@@ -1,5 +1,3 @@
-# attendance/views.py
-
 from django.http import JsonResponse, HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from .models import AttendanceRecord
@@ -13,9 +11,6 @@ def register_attendance(request):
         if image:
             record = AttendanceRecord(image=image)
             record.save()
-
-            # backendconnect
-
             return JsonResponse({'message': 'Attendance registered successfully'})
         else:
             return JsonResponse({'error': 'No image provided'}, status=400)
